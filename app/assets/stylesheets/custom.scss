@@ -12,7 +12,7 @@ h5{
 
 div.container{
   position: relative;
-  top: -8em;
+  top: 0em;
   margin: 0 auto;
 }
 
@@ -28,7 +28,7 @@ div.result{
 .jumbotron{
   position:relative;
   top:20em;
-  z-index: -1;
+  z-index: 0;
   background: rgba(97, 163, 113, 1);
 
 }
@@ -88,13 +88,18 @@ a:hover {
   border:none;
 }
 
+.find_out {
+  margin-top: 15em;
+  margin-bottom: 11em;
+}
+
 footer {
-	margin-top: 45px;
-	padding-top: 5px;
-	border-top: 1px solid #eaeaea;
-	width:100%;
-	color: grey;
-  bottom:0;
+  margin: 45px auto;
+  padding-top: 5px;
+  border-top: 1px solid #eaeaea;
+  width: 76%;
+  color: grey;
+  bottom: 0;
 }
 small {
 	float:left;

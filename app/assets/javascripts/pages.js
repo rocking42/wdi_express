@@ -1,15 +1,16 @@
 $(document).ready(function(){
-
+  // Initialy hides the container
   $("div.container").hide();
+  // Hides opening intro and fades in main content
   $("button.start").click(function() {
     $("div.container").fadeIn("slow");
-    $("div.main").fadeOut();
+    $("div.main").hide();
   });
-
+  // I'm feeling like this is just functionception
   function inputSort(input1, input2) {
     isEmpty(input1, input2);
   }
-
+  // Determines Whether to highlight button based on div content
   function buttonColor(input1, input2, divName){
     if($("div.one").html() === "" || $("div.three").html() === ""){
       inputSort(input1, input2);
@@ -20,7 +21,6 @@ $(document).ready(function(){
   // Nline: ["Times square", "34th", "29th", "23rd", "union square", "8th"],
   $("button.times_square").click(function() {
     buttonColor("Nline", "Times square", "button.times_square");
-    // $("button.times_square").css("background", "red");
   });
 
   $("button.34th").click(function() {
@@ -96,7 +96,7 @@ $(document).ready(function(){
        $("div.image_wrap").fadeIn();
     $("div.result").html(input).append();
   });
-
+  // Clears buttons and content also adds the hover class
   $("button.clear").click(function() {
     $("div.one").html("");
     $("div.two").html("");
@@ -108,7 +108,8 @@ $(document).ready(function(){
     $(".btn-primary").css("background-color","#337ab7");
     $(".btn-primary").addClass("hover");
   });
-
+  // checks if a div is empty for it to choose where to append
+  // The error message is redundant however it is there to display earlier version
   function isEmpty(input1, input2) {
     if ($("div.one").html() === "") {
     $("div.one").html(input1).append();
@@ -123,7 +124,7 @@ $(document).ready(function(){
       $("div.error").html("You may only choose two stations");
     }
   }
-
+  // Determines what content to display based on the users last picked station
   function imageMatch(input1) {
     if (input1 == "Times square") {
       $('#img').html('<img id="theImg" class="img-rounded img-responsive" src="http://travellingmoods.com/wp-content/uploads/2015/05/times-square.jpg" />');
@@ -151,7 +152,7 @@ $(document).ready(function(){
       $("p.explain").html("Come see the Hip shops all over our suburbs or just catch up with family and friends");
     }
   }
-
+  // Lines listed in an object
   var lines = {
     Lline: ["8th", "6th", "union square", "3rd", "1st"],
     Nline: ["Times square", "34th", "29th", "23rd", "union square", "8th "],
@@ -181,12 +182,12 @@ $(document).ready(function(){
   // console.log(sortedLines("Nline", "Times square"));
   // console.log(sortedLines("Lline", "8th"));
 
-  // find out d index of a stop
+  // find out the index of a stop
   function indexOfTrip(arr, stop) {
     var result = arr.indexOf(stop);
     return result;
   }
-  // function that goes forward on a single line by testing index
+  // function that goes forwards on a single line by testing index
   function forwardStops(startLine, startStation, endLine, endStation) {
     var startIndex = indexOfTrip(startLine, startStation);
     var endIndex = indexOfTrip(endLine, endStation);
@@ -198,7 +199,7 @@ $(document).ready(function(){
     }
     return myArr;
   }
-  // function that goes backward on a single line by testing index
+  // function that goes backwards on a single line by testing index
   function backwardStops(endLine, endStation, startLine, startStation) {
     var startIndex = indexOfTrip(endLine, endStation);
     var endIndex = indexOfTrip(startLine, startStation);
@@ -209,7 +210,7 @@ $(document).ready(function(){
     }
     return myArr;
   }
-  // identifies by using d index of start and last stop whedr to list forwards or backwards
+  // identifies by using the index of start and last stop whedr to list forwards or backwards
   function printStations(startLine, startStation, endLine, endStation) {
     var startIndex = indexOfTrip(startLine, startStation);
     var endIndex = indexOfTrip(endLine, endStation);
@@ -223,7 +224,7 @@ $(document).ready(function(){
       return "Thats not a proper Journey";
     }
   }
-  // this is simply d message for a simple one line trip
+  // this is simply the message for a simple one line trip
   function oneLine(startLine, startStation, endLine, endStation) {
     var complete = printStations(startLine, startStation, endLine, endStation);
     var message = "Get on at " + complete.slice(0,1) + '<br>';
@@ -235,7 +236,7 @@ $(document).ready(function(){
       return message;
   }
   // After seeing this code present in all complex lines I added it in to a function
-  // this determines d slice values by using d length of d three arrays (start, end and joined)
+  // this determines the slice values by using the length of the three arrays (start, end and joined)
   function finalMessage(newArr, startStation, endStation, examArr, counter) {
     var complete = printStations(newArr, startStation, newArr, endStation);
     var count1 = complete.length - counter;
@@ -251,8 +252,8 @@ $(document).ready(function(){
     message += " " + complete.length + " stops in total";
     return message;
   }
-  // I would have liked to refactor d next four but as dy all vary slight it cannot be done
-  // this simply joins d arrays depending on d if statement to follow
+  // I would have liked to refactor the next four but as they all vary slightly it cannot be done
+  // this simply joins the arrays depending on the if statement to follow and then displays the final message
   function backSwitch(startLine, startStation, endStation, endLine, startUnion, endUnion, startIndex, endIndex) {
     var counter = 0;
     var newArr = startLine.slice(startUnion, startIndex + 1);
@@ -300,7 +301,7 @@ $(document).ready(function(){
     }
     return finalMessage(newArr, startStation, endStation, examArr, counter);
   }
-  // Using d index's of start, end and union square for both lines determine which if statement to follow
+  // Using the index's of start, end and union square for both lines determine which if statement to follow
   function sortStations(startString, startStation, endString, endStation) {
     var startLine = sortedLines(startString, startStation);
     var endLine = sortedLines(endString, endStation);
@@ -338,19 +339,7 @@ $(document).ready(function(){
   // console.log(sortStations( "Lline", "8th", "six line", "grand central")); // for loop
 
 });
-// start of function d
-// list array in object
-// For references
-// Lline: ["8th", "6th", "union square", "3rd", "1st"],
-// Nline: ["Times square", "34th", "29th", "23rd", "union square", "8th"],
-// six_line:["grand central", "33rd", "29th" ,"union square", "astor place"]
-
-// end of function anythin after or before this is purely testing
-
-
-
-
-
+// end of function anything after this is purely testing
 //2nd version didnt work for lines that looped
 
 // lines2 = {
