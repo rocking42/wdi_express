@@ -53,7 +53,7 @@ $(document).ready(function(){
   });
 
   $("button.union_square_L").click(function() {
-    buttonColor("Lline", "Union Square", "button.union_square_L");
+    buttonColor("Lline", "union square", "button.union_square_L");
   });
 
   $("button.3rd").click(function() {
