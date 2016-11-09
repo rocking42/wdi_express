@@ -1,9 +1,9 @@
-# README
+# WDI Express
+---
+## WDI 18 week 1.
 
-WDI Express
+Project working on  iterating through and joining arrays
 
-project for WDI 18 week 1.
+Made with JS, jQuery, HTML, Sass and Rails.
 
-Made with JS, jQuery, HTML, Sass and rail.
-
-Project link: https://nameless-wave-87479.herokuapp.com/
+Project link: [WDI Express](https://nameless-wave-87479.herokuapp.com/)
